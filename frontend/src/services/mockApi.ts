@@ -44,7 +44,7 @@ export type FireVulnerability = {
   sensorID: string;
   longitude: number;
   latitude: number;
-  alertLevel: string;  // 'normal' | 'elevated' | 'high' | 'critical'
+  fireVulnerabilityScore: number; // 0–10
   lastUpdated: string; // ISO 8601
 };
 

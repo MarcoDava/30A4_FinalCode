@@ -42,14 +42,11 @@ function fireScoreStatusColor(status: string): string {
   }
 }
 
-function alertLevelColor(level: string): string {
-  switch (level) {
-    case 'critical': return '#E74C3C';
-    case 'high':     return '#E67E22';
-    case 'elevated': return '#F1C40F';
-    case 'normal':   return '#2ECC71';
-    default:         return '#8E8E93';
-  }
+function vulnerabilityScoreColor(score: number): string {
+  if (score >= 8)  return '#E74C3C'; // critical
+  if (score >= 6)  return '#E67E22'; // high
+  if (score >= 4)  return '#F1C40F'; // medium
+  return '#2ECC71';                  // low
 }
 
 function dispatchStatusColor(status: string): string {
@@ -121,13 +118,15 @@ function DispatchCard({ item }: { item: DispatchUnit }) {
 }
 
 function VulnerabilityCard({ item }: { item: FireVulnerability }) {
-  const color = alertLevelColor(item.alertLevel);
+  const color = vulnerabilityScoreColor(item.fireVulnerabilityScore);
   return (
     <View className="bg-white rounded-lg p-3 mb-3 flex-1" style={{ margin: 4 }}>
       <View className="flex-row items-center justify-between mb-1">
         <Text className="text-sm font-bold text-gray-800">{item.sensorID}</Text>
         <View className="rounded px-2 py-0.5" style={{ backgroundColor: color }}>
-          <Text className="text-white text-xs font-semibold uppercase">{item.alertLevel}</Text>
+          <Text className="text-white text-xs font-semibold">
+            Score: {item.fireVulnerabilityScore.toFixed(1)}
+          </Text>
         </View>
       </View>
       <Text className="text-xs text-gray-600">
