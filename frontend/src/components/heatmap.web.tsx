@@ -1,5 +1,3 @@
-import 'leaflet/dist/leaflet.css';
-
 import { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
@@ -22,6 +20,7 @@ const tileProps = {
 
 export function Heatmap() {
   const [leaflet, setLeaflet] = useState<ReactLeafletModule | null>(null);
+  
 
   useEffect(() => {
     let mounted = true;
@@ -29,6 +28,15 @@ export function Heatmap() {
     const loadMap = async () => {
       if (typeof window === 'undefined') {
         return;
+      }
+
+      // Inject Leaflet CSS dynamically so it only runs in the browser
+      if (!document.querySelector('link[data-leaflet-css]')) {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.setAttribute('data-leaflet-css', '');
+        link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+        document.head.appendChild(link);
       }
 
       const module = await import('react-leaflet');
