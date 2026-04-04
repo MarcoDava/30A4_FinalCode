@@ -1,4 +1,5 @@
 import { NativeTabs } from 'expo-router/unstable-native-tabs';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import React from 'react';
 import { useColorScheme } from 'react-native';
 
@@ -16,16 +17,52 @@ export default function AppTabs() {
       <NativeTabs.Trigger name="index">
         <NativeTabs.Trigger.Label>Home</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon
-          src={require('@/assets/images/tabIcons/home.png')}
-          renderingMode="template"
+          src={{
+            default: (
+              <NativeTabs.Trigger.VectorIcon
+                family={MaterialCommunityIcons}
+                name="home-outline"
+              />
+            ),
+            selected: (
+              <NativeTabs.Trigger.VectorIcon family={MaterialCommunityIcons} name="home" />
+            ),
+          }}
         />
       </NativeTabs.Trigger>
 
-      <NativeTabs.Trigger name="explore">
-        <NativeTabs.Trigger.Label>Explore</NativeTabs.Trigger.Label>
+      <NativeTabs.Trigger name="map">
+        <NativeTabs.Trigger.Label>Map</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon
-          src={require('@/assets/images/tabIcons/explore.png')}
-          renderingMode="template"
+          src={{
+            default: (
+              <NativeTabs.Trigger.VectorIcon family={MaterialCommunityIcons} name="map-outline" />
+            ),
+            selected: (
+              <NativeTabs.Trigger.VectorIcon family={MaterialCommunityIcons} name="map" />
+            ),
+          }}
+        />
+      </NativeTabs.Trigger>
+      
+
+      <NativeTabs.Trigger name="dashboard">
+        <NativeTabs.Trigger.Label>Dashboard</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon
+          src={{
+            default: (
+              <NativeTabs.Trigger.VectorIcon
+                family={MaterialCommunityIcons}
+                name="view-dashboard-outline"
+              />
+            ),
+            selected: (
+              <NativeTabs.Trigger.VectorIcon
+                family={MaterialCommunityIcons}
+                name="view-dashboard"
+              />
+            ),
+          }}
         />
       </NativeTabs.Trigger>
     </NativeTabs>

@@ -22,11 +22,14 @@ export default function AppTabs() {
       <TabSlot style={{ height: '100%' }} />
       <TabList asChild>
         <CustomTabList>
-          <TabTrigger name="home" href="/" asChild>
+          <TabTrigger name="index" href="/" asChild>
             <TabButton>Home</TabButton>
           </TabTrigger>
-          <TabTrigger name="explore" href="/explore" asChild>
-            <TabButton>Explore</TabButton>
+          <TabTrigger name="map" href="/map" asChild>
+            <TabButton>Map</TabButton>
+          </TabTrigger>
+          <TabTrigger name="dashboard" href="/dashboard" asChild>
+            <TabButton>Dashboard</TabButton>
           </TabTrigger>
         </CustomTabList>
       </TabList>
