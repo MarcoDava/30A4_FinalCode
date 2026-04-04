@@ -1,10 +1,61 @@
-import { StyleSheet, Text, View } from 'react-native';
+import 'leaflet/dist/leaflet.css';
+
+import { useEffect, useState } from 'react';
+import { StyleSheet, View } from 'react-native';
+
+type ReactLeafletModule = typeof import('react-leaflet');
+
+const mapProps = {
+  center: [37.78825, -122.4324],
+  zoom: 12,
+  style: { width: '100%', height: '100%' },
+  scrollWheelZoom: true,
+  borderRadius: 12,
+} as any;
+
+const tileProps = {
+  attribution:
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+  borderRadius: 12,
+} as any;
 
 export function Heatmap() {
+  const [leaflet, setLeaflet] = useState<ReactLeafletModule | null>(null);
+
+  useEffect(() => {
+    let mounted = true;
+
+    const loadMap = async () => {
+      if (typeof window === 'undefined') {
+        return;
+      }
+
+      const module = await import('react-leaflet');
+
+      if (mounted) {
+        setLeaflet(module);
+      }
+    };
+
+    loadMap();
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  if (!leaflet) {
+    return <View style={styles.container} />;
+  }
+
+  const { MapContainer, TileLayer } = leaflet;
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Map preview is available on iOS and Android.</Text>
-      <Text style={styles.subtitle}>The web build uses this fallback to avoid loading native map modules.</Text>
+      <MapContainer {...mapProps}>
+        <TileLayer {...tileProps} />
+      </MapContainer>
     </View>
   );
 }
@@ -12,20 +63,11 @@ export function Heatmap() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: 20,
-    gap: 8,
+    width: '200%',
+    height: '50%', 
   },
-  title: {
-    fontSize: 18,
-    fontWeight: '600',
-    textAlign: 'center',
-  },
-  subtitle: {
-    fontSize: 14,
-    opacity: 0.7,
-    textAlign: 'center',
+  map: {
+    width: '200%',
+    height: '100%',
   },
 });

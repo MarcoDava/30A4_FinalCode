@@ -1,26 +1,17 @@
-import { Platform } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { WebBadge } from '@/components/web-badge';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
-
+import { Text, View, ScrollView } from 'react-native';
+import { VideoView, useVideoPlayer } from 'expo-video';
 
 
 export default function HomeScreen() {
   return (
-    <ThemedView className="flex-1 items-center justify-center w-screen h-screen">
-      <SafeAreaView className="flex-1 items-center justify-center gap-4 px-4" style={{ maxWidth: MaxContentWidth, paddingBottom: BottomTabInset + Spacing.three }}>
-        <ThemedView className="" >
-          
-          <ThemedText type="title" className="flex-1 justify-center align-center w-full text-center">
-            Welcome to&nbsp;SCEMAS FireWatch
-          </ThemedText>
-        </ThemedView>
+    <ScrollView contentContainerStyle={{ flexGrow: 1 }} className="flex-1 px-6">
+      <View className="flex flex-direction-row items-center justify-center w-full h-full" >
+        <Text className="text-2xl font-bold text-center">
+          Welcome to SCEMAS FireWatch
+        </Text>
+      </View>
 
-        {Platform.OS === 'web' && <WebBadge />}
-      </SafeAreaView>
-    </ThemedView>
+    </ScrollView>
   );
 }
 
