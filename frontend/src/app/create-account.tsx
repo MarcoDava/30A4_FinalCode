@@ -14,7 +14,7 @@ import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
-import { CreateAccountPage, createStubUserManagementClient } from '@/presentation/account';
+import { CreateAccountPage, createHttpUserManagementClient } from '@/presentation/account';
 
 export default function CreateAccountScreen() {
   const theme = useTheme();
@@ -23,7 +23,7 @@ export default function CreateAccountScreen() {
   const [, setTick] = useState(0);
   const notify = useCallback(() => setTick((t) => t + 1), []);
 
-  const userManagement = useMemo(() => createStubUserManagementClient(), []);
+  const userManagement = useMemo(() => createHttpUserManagementClient(), []);
   const page = useMemo(() => new CreateAccountPage(userManagement, notify), [userManagement, notify]);
 
   const [username, setUsername] = useState('');

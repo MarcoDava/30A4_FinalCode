@@ -7,18 +7,18 @@ public class FireScore {
     private String sensorID;
     private double latitude;
     private double longitude;
-    private double firescore;
+    private double fireScore;
     private String timestamp;
     private String status;
 
     public FireScore() {}
 
-    public FireScore(String id, String sensorID, double latitude, double longitude, double firescore, String timestamp, String status) {
+    public FireScore(String id, String sensorID, double latitude, double longitude, double fireScore, String timestamp, String status) {
         this.id = id;
         this.sensorID = sensorID;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.firescore = firescore;
+        this.fireScore = fireScore;
         this.timestamp = timestamp;
         this.status = status;
     }
@@ -27,12 +27,17 @@ public class FireScore {
     public String getSensorID() { return sensorID; }
     public double getLatitude() { return latitude; }
     public double getLongitude() { return longitude; }
-    public double getFireScore() { return firescore; }
+    public double getFireScore() { return fireScore; }
     public String getTimestamp() { return timestamp; }
     public String getStatus() { return status; }
 
-    public void updateStatus(String newStatus) {
+    public void updateStatus(String newStatus,String timestamp) {
         this.status = newStatus;
+        this.timestamp = timestamp;
+    }
+    public void updateFireScore(double newScore, String timestamp) {
+        this.fireScore = newScore;
+        this.timestamp = timestamp;
     }
 
 }

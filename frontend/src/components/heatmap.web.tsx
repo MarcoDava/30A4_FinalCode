@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { getAreaStatus } from '../services/mockApi';
+import { getAreaStatus } from '../services/apiClient';
 
 type HeatPoint = [number, number, number]; // [lat, lng, intensity]
 
@@ -119,7 +119,7 @@ export function Heatmap() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: '400%',
+    width: '100%',
     height: '50%',
   },
 });

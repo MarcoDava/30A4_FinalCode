@@ -14,7 +14,7 @@ import {
   getDispatchUnits,
   getIncidentHistory,
   getLatestIncidents,
-} from '../services/mockApi';
+} from '../services/apiClient';
 
 // ---------------------------------------------------------------------------
 // Tab definitions
@@ -122,7 +122,7 @@ function VulnerabilityCard({ item }: { item: FireVulnerability }) {
   return (
     <View className="bg-white rounded-lg p-3 mb-3 flex-1" style={{ margin: 4 }}>
       <View className="flex-row items-center justify-between mb-1">
-        <Text className="text-sm font-bold text-gray-800">{item.sensorID}</Text>
+        <Text className="text-sm font-bold text-gray-800">{item.areaName}</Text>
         <View className="rounded px-2 py-0.5" style={{ backgroundColor: color }}>
           <Text className="text-white text-xs font-semibold">
             Score: {item.fireVulnerabilityScore.toFixed(1)}
