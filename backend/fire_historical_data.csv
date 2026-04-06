@@ -1,0 +1,38 @@
+buildingId,buildingName,buildingMaterial,buildingAge,lastFireDate,lastFireCause,fireExtentPercentage,lastInspectionDate,fireRiskLevel,notes
+B001,Central Fire Station,concrete,35,2022-05-15,electrical,2.5,2024-03-10,Low,Well maintained fire safety infrastructure
+B002,Oak Ridge Apartment Complex,wood,52,2018-08-22,cooking,15.3,2025-01-05,High,Fire damaged west wing still under renovation
+B003,Downtown Office Tower,steel,28,None,None,0.0,2024-11-20,Low,New building with modern fire suppression
+B004,Miller's Hardware Store,brick,67,2015-11-03,electrical,8.2,2024-09-15,Medium,Older wiring replaced in 2020
+B005,Riverside Library,concrete,41,2019-06-10,arson,22.8,2024-10-08,High,Basement fire caused extensive water damage
+B006,St. Mary's Hospital,steel,18,None,None,0.0,2024-12-01,Low,State of the art fire detection systems
+B007,Pine Valley School,brick,44,2017-02-14,cooking,5.1,2024-08-30,Low,Cafeteria fire quickly contained
+B008,Industrial Warehouse Zone A,metal,39,2020-03-27,unknown,35.5,2024-07-22,High,Severe fire damage to inventory section
+B009,Historic Town Hall,wood,89,2016-09-05,electrical,12.7,2024-06-15,High,Significant damage to upper floors restored
+B010,Maple Street Grocery,concrete,22,None,None,0.0,2024-11-12,Low,Recently built with all modern codes
+B011,The Grill Restaurant,brick,31,2023-02-08,cooking,3.2,2024-12-05,Medium,Minor kitchen fire contained quickly
+B012,Sunset Hotel,steel,25,None,None,0.0,2024-10-30,Low,Comprehensive fire prevention program in place
+B013,Forest Lodge Cabin,wood,72,2014-07-18,smoking,18.9,2024-05-20,High,Lost section of building to wildfire exposure
+B014,Community Center,concrete,19,2021-12-01,electrical,1.8,2024-11-25,Low,Recently updated electrical systems
+B015,Vintage Theater,wood,95,2012-04-22,unknown,45.2,2023-09-10,High,Historic building heavily compromised needs monitoring
+B016,Marina Repair Shop,metal,43,2019-10-14,welding,28.4,2024-08-15,High,Welding accident caused major damage
+B017,Sunrise Bakery,brick,15,None,None,0.0,2024-12-08,Low,New building exceeds all fire codes
+B018,County Courthouse,concrete,61,2013-11-11,electrical,7.5,2024-04-18,Medium,Historic structure with updated safety features
+B019,Pet Hospital,steel,8,None,None,0.0,2024-12-12,Low,Newest facility with advanced systems
+B020,Woodland Cottage,wood,84,2011-03-09,fireplace,24.6,2023-08-20,High,Chimney fire caused significant structural damage
+B021,Manufacturing Plant B,steel,36,2022-01-30,mechanical,11.3,2024-11-05,Medium,Equipment malfunction triggered fire
+B022,Sports Complex Arena,concrete,21,None,None,0.0,2024-12-02,Low,Proper maintenance prevents incidents
+B023,The Spice Market,brick,28,2023-09-17,cooking,4.7,2024-10-15,Low,Grease fire quickly suppressed by staff
+B024,Mountain Retreat Resort,wood,58,2017-05-23,smoking,31.1,2024-07-10,High,Multiple cottages affected by fire
+B025,Tech Innovation Hub,steel,5,None,None,0.0,2025-01-01,Low,Brand new facility with latest safety technology
+B026,Old Mill Conversion,brick,103,2010-06-05,unknown,52.8,2023-07-22,High,Limited restoration due to age and damage
+B027,Garden District Homes,wood,46,2020-11-08,electrical,9.4,2024-09-25,Medium,Residential area fire affected several properties
+B028,Financial District Building,steel,31,None,None,0.0,2024-12-10,Low,Weekly fire drills and maintenance
+B029,Farmer's Market Hall,concrete,12,None,None,0.0,2024-11-30,Low,Community space with excellent safety record
+B030,Stone Bridge Museum,brick,127,2009-02-14,arson,38.5,2023-05-10,High,Historic structure requires continuous monitoring
+B031,Lakeside Pavilion,wood,33,2021-08-30,electrical,6.8,2024-10-05,Low,Outdoor structure with limited fire exposure
+B032,Corporate Tech Park Building 3,steel,14,None,None,0.0,2024-12-07,Low,Modern office space with occupant safety priority
+B033,Vintage Bookstore,wood,71,2015-12-20,electrical,19.2,2024-06-22,High,Rare books were lost precious collection damaged
+B034,Civic Convention Center,concrete,26,None,None,0.0,2024-11-28,Low,Regular maintenance and inspections
+B035,Rural Volunteer Fire Station,concrete,37,None,None,0.0,2024-12-01,Low,Community training center operational
+B036,Mountain View Warehouse,metal,48,2018-04-11,unknown,26.7,2024-08-18,High,Remote location complicated firefighting efforts
+B037,Heritage Manor Bed & Breakfast,brick,82,2014-09-03,fireplace,14.1,2024-05-15,High,Victorian structure demands specialized care
