@@ -45,7 +45,7 @@ export default function CreateAccountScreen() {
       confirmPassword,
     });
     if (ok) {
-      router.replace('/login');
+      router.replace('/signin');
     }
   }
 
@@ -175,7 +175,7 @@ export default function CreateAccountScreen() {
             </ThemedText>
           </Pressable>
 
-          <Link href="/login" asChild>
+          <Link href="/signin" asChild>
             <Pressable style={({ pressed }) => [{ opacity: pressed ? 0.7 : 1 }]}>
               <ThemedText type="linkPrimary">Already have an account? Sign in</ThemedText>
             </Pressable>

@@ -12,6 +12,7 @@
  *   getIncidentHistory()  →  GET  /api/incidents/history   →  FireScoreAgent#getHistory()
  *   getDispatchUnits()    →  GET  /api/dispatch/units      →  DispatchController#getUnits()
  *   getAreaStatus()       →  GET  /api/areas/status        →  FireVulnerabilityAgent#getStatus()
+ *   getAlerts()           →  GET  /api/alerts              →  FireAlertAgent#getAlerts()
  */
 
 // ---------------------------------------------------------------------------
@@ -36,6 +37,17 @@ export type DispatchUnit = {
   status: string;
   assignedIncidentId: string | null;
   location: string;
+};
+
+// Matches FireAlert.java
+export type FireAlert = {
+  id: string;
+  sensorID: string;
+  areaName: string;
+  type: 'FIRE_SCORE' | 'FIRE_VULNERABILITY';
+  score: number;
+  timestamp: string;
+  message: string;
 };
 
 // Matches FireVulnerability.java
@@ -85,4 +97,8 @@ export function getDispatchUnits(): Promise<DispatchUnit[]> {
 
 export function getAreaStatus(): Promise<FireVulnerability[]> {
   return apiFetch<FireVulnerability[]>('/api/areas/status');
+}
+
+export function getAlerts(): Promise<FireAlert[]> {
+  return apiFetch<FireAlert[]>('/api/alerts');
 }

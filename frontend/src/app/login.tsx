@@ -13,6 +13,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
+import { useAuth } from '@/context/auth-context';
 import { useTheme } from '@/hooks/use-theme';
 import { LoginPage, createHttpUserManagementClient } from '@/presentation/account';
 
@@ -20,6 +21,7 @@ export default function LoginScreen() {
   const theme = useTheme();
   const router = useRouter();
   const insets = useSafeAreaInsets();
+  const { setAuthenticated } = useAuth();
   const [, setTick] = useState(0);
   const notify = useCallback(() => setTick((t) => t + 1), []);
 
@@ -36,6 +38,7 @@ export default function LoginScreen() {
   async function onLogin() {
     const ok = await page.submit(username, password);
     if (ok) {
+      setAuthenticated(true);
       router.replace('/');
     }
   }

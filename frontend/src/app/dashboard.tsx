@@ -15,6 +15,7 @@ import {
   getIncidentHistory,
   getLatestIncidents,
 } from '../services/apiClient';
+import { useAlerts } from '@/hooks/use-alerts';
 
 // ---------------------------------------------------------------------------
 // Tab definitions
@@ -144,6 +145,7 @@ function VulnerabilityCard({ item }: { item: FireVulnerability }) {
 // ---------------------------------------------------------------------------
 
 export default function DashboardScreen() {
+  const alerts = useAlerts();
   const [activeTab, setActiveTab] = useState<TabKey>('latestIncidents');
   const [incidents, setIncidents] = useState<FireScore[]>([]);
   const [history, setHistory] = useState<FireScore[]>([]);
@@ -215,6 +217,31 @@ export default function DashboardScreen() {
       <View className="bg-[#303030] px-[4vw] pt-24 pb-4">
         <Text className="text-2xl font-bold text-white">Dashboard</Text>
       </View>
+
+      {/* Active alerts */}
+      {alerts.length > 0 && (
+        <View style={{ backgroundColor: '#1a1a1a', paddingHorizontal: 12, paddingVertical: 8, gap: 6 }}>
+          {alerts.map((alert) => (
+            <View
+              key={alert.id}
+              style={{
+                backgroundColor: alert.type === 'FIRE_SCORE' ? '#c0392b' : '#e67e22',
+                borderRadius: 6,
+                paddingHorizontal: 12,
+                paddingVertical: 8,
+                flexDirection: 'row',
+                alignItems: 'center',
+                gap: 8,
+              }}
+            >
+              <Text style={{ fontSize: 14 }}>{alert.type === 'FIRE_SCORE' ? '🔥' : '⚠️'}</Text>
+              <Text style={{ color: '#fff', fontSize: 13, fontWeight: '600', flexShrink: 1 }}>
+                {alert.message}
+              </Text>
+            </View>
+          ))}
+        </View>
+      )}
 
       <View className="flex-1 flex-row">
         {/* Sidebar */}
