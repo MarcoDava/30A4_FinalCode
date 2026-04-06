@@ -1,19 +1,20 @@
 package com.example.demo;
 
+import java.util.List;
+
 public class PublicManagement {
 
-    private MapRepresentation mapDisplay;
+    private final FireVulnerabilityAgent vulnerabilityAgent;
 
-    public PublicManagement(MapRepresentation mapDisplay) {
-        this.mapDisplay = mapDisplay;
+    public PublicManagement(FireVulnerabilityAgent vulnerabilityAgent) {
+        this.vulnerabilityAgent = vulnerabilityAgent;
     }
 
-    public void displayMap() {
-        // Delegation, not implementation
-        mapDisplay.displayMap();
+    public List<FireVulnerability> getVulnerabilityPoints() {
+        return vulnerabilityAgent.getStatus();
     }
 
-    public void displayBuilding(String buildingID) {
-        mapDisplay.displayBuilding(buildingID);
+    public FireVulnerability getVulnerabilityForSensor(String sensorID, double longitude, double latitude) {
+        return vulnerabilityAgent.calculateVulnerability(sensorID, longitude, latitude);
     }
 }

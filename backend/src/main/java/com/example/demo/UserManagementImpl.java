@@ -6,7 +6,7 @@ public class UserManagementImpl extends UserManagement {
         this.loginAccount  = new Login();
         this.accountCreate = new CreateAccount();
         this.accountEdit   = new EditAccount();
-        this.accountView   = new ViewAccount();
+        this.accountView   = new ViewAccount("");
     }
 
     @Override
