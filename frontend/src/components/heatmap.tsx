@@ -1,22 +1,19 @@
 import { StyleSheet, View } from 'react-native';
-import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
-// type Props = Omit<ComponentProps<typeof Link>, 'href'> & { href: Href & string };
+const apiKey = process.env.EXPO_PUBLIC_GOOGLE_MAPS_API_KEY;
 
-
-// { href, ...rest }: Props // this goes in the function parameters to add props. 
-//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 export function Heatmap() {
   return (
     <View style={styles.container}>
         <MapView
             style={styles.map}
-            provider={PROVIDER_GOOGLE} // Use Google Maps instead of native Apple Maps on iOS
+            provider={apiKey ? PROVIDER_GOOGLE : undefined}
             initialRegion={{
-            latitude: 37.78825,
-            longitude: -122.4324,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
+              latitude: 43.2557,
+              longitude: -79.8711,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421,
             }}
       />
     </View>

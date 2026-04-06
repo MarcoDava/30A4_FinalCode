@@ -9,7 +9,10 @@ public class CreateAccount {
             return false;
         }
 
-        // Simulate saving to database
+        if (UserDatabase.exists(username)) {
+            return false;
+        }
+        UserDatabase.addUser(username, password);
         System.out.println("Account created for: " + username);
         return true;
     }
@@ -17,7 +20,7 @@ public class CreateAccount {
     public boolean validateFields(String username, String password,
                                   String email, String phoneNumber) {
 
-        return !(username.isEmpty() || password.isEmpty()
-                || email.isEmpty() || phoneNumber.isEmpty());
+        return !username.isEmpty() && !password.isEmpty()
+                && !email.isEmpty() && !phoneNumber.isEmpty();
     }
 }
