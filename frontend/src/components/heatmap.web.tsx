@@ -15,7 +15,7 @@ type LoadedModules = ReactLeafletModule & {
 const mapProps = {
   center: [43.2557, -79.8711] as [number, number], // Hamilton, ON
   zoom: 12,
-  style: { width: '100%', height: '100%' },
+  style: { width: '400%', height: '100%' },
   scrollWheelZoom: true,
 } as any;
 
@@ -145,24 +145,6 @@ export function Heatmap() {
           };
         }, [map, vp, sp, cp]);
 
-        useEffect(() => {
-          const legend = (L as any).control({ position: 'bottomright' });
-          legend.onAdd = () => {
-            const div = document.createElement('div');
-            div.style.cssText =
-              'background:rgba(255,255,255,0.9);padding:10px 14px;border-radius:8px;font-size:13px;line-height:1.8;box-shadow:0 1px 4px rgba(0,0,0,0.3);';
-            div.innerHTML = `
-              <b style="display:block;margin-bottom:4px;">Legend</b>
-              <span style="display:inline-block;width:14px;height:14px;background:#fd8d3c;border-radius:3px;margin-right:6px;vertical-align:middle;"></span>Fire Vulnerability<br/>
-              <span style="display:inline-block;width:14px;height:14px;background:#2171b5;border-radius:3px;margin-right:6px;vertical-align:middle;"></span>Fire Score<br/>
-              <span style="display:inline-block;width:14px;height:14px;background:#6a51a3;border-radius:3px;margin-right:6px;vertical-align:middle;"></span>Both
-            `;
-            return div;
-          };
-          legend.addTo(map);
-          return () => { legend.remove(); };
-        }, [map]);
-
         return null;
       }
 
@@ -251,6 +233,24 @@ export function Heatmap() {
         <HeatLayer vulnPoints={vulnPoints} scorePoints={scorePoints} combinedPoints={combinedPoints} />
         <MapClickHandler areas={areas} incidents={incidents} />
       </MapContainer>
+      <div style={{
+        position: 'absolute',
+        bottom: 16,
+        right: 16,
+        background: 'rgba(255,255,255,0.9)',
+        padding: '10px 14px',
+        borderRadius: 8,
+        fontSize: 13,
+        lineHeight: '1.8',
+        boxShadow: '0 1px 4px rgba(0,0,0,0.3)',
+        zIndex: 1000,
+        pointerEvents: 'none',
+      }}>
+        <b style={{ display: 'block', marginBottom: 4 }}>Legend</b>
+        <span style={{ display: 'inline-block', width: 14, height: 14, background: '#fd8d3c', borderRadius: 3, marginRight: 6, verticalAlign: 'middle' }} />Fire Vulnerability<br />
+        <span style={{ display: 'inline-block', width: 14, height: 14, background: '#2171b5', borderRadius: 3, marginRight: 6, verticalAlign: 'middle' }} />Fire Score<br />
+        <span style={{ display: 'inline-block', width: 14, height: 14, background: '#6a51a3', borderRadius: 3, marginRight: 6, verticalAlign: 'middle' }} />Both
+      </div>
     </View>
   );
 }
@@ -260,5 +260,8 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     height: '50%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'relative',
   },
 });
