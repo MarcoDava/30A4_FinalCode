@@ -7,7 +7,9 @@ Built for SE 3A04 – Software Design II (Large System Design).
 # 📌 Overview
 SCEMAS combines:
 🌡️ Real-time sensor data (temperature, smoke, humidity)
+
 🔥 Fire risk analysis (real-time + historical data)
+
 🚨 Alert system for fire departments
 🗺️ Visualization via maps and heatmaps
 Goal: early fire detection + faster response + safer cities
