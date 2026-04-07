@@ -6,6 +6,7 @@ Built for SE 3A04 – Software Design II (Large System Design).
 
 # 📌 Overview
 SCEMAS combines:
+
 🌡️ Real-time sensor data (temperature, smoke, humidity)
 
 🔥 Fire risk analysis (real-time + historical data)
