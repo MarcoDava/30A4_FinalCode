@@ -94,8 +94,16 @@ Deliverable 2 → Architecture (PAC + Blackboard)
 Deliverable 3 → Detailed Design (state charts, sequence diagrams)
 
 
-#👨‍💻 Team
+# 👨‍💻 Team
 
 SE 3A04 Group Project
 
-Anas Abdur Rahman · Marco Dava · Owen Johnson · Nathan Hum · Tamunoemi Membere
+Anas Abdur Rahman 
+
+Marco Dava 
+
+Owen Johnson
+
+Nathan Hum 
+
+Tamunoemi Membere
